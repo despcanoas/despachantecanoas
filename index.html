@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despachante Canoas - Documentação Veicular em Rio do Sul/SC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23f0f0f0" width="1200" height="400"/><path fill="%23ddd" d="M0 300 Q300 250 600 300 T1200 300 L1200 400 L0 400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .services {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        .gallery {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 250px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gallery-item svg {
+            width: 120px;
+            height: 120px;
+            opacity: 0.6;
+        }
+
+        .contact {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s;
+        }
+
+        .contact-card a:hover {
+            border-bottom-color: white;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .footer-content p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-content strong {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid,
+            .gallery-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Despachante Canoas</h1>
+                <p>Soluções completas em documentação veicular</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Facilitamos toda a documentação do seu veículo</h2>
+            <p>Atendimento rápido e profissional em Rio do Sul/SC</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Transferência de Veículos</h3>
+                    <ul>
+                        <li>Transferência de propriedade</li>
+                        <li>Mudança de município</li>
+                        <li>Documentação completa</li>
+                        <li>Processo ágil e seguro</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Licenciamento</h3>
+                    <ul>
+                        <li>Licenciamento anual</li>
+                        <li>Renovação de CNH</li>
+                        <li>Segunda via de documentos</li>
+                        <li>Consulta de débitos</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Outros Serviços</h3>
+                    <ul>
+                        <li>Baixa de veículos</li>
+                        <li>Emplacamento</li>
+                        <li>Alteração de características</li>
+                        <li>Regularização de pendências</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <h2>Nossa Expertise</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1e3c72" stroke-width="2">
+                        <path d="M5 17h14v2H5v-2zm0-4h14v2H5v-2zm0-4h14v2H5V9zm0-4h14v2H5V5z"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1e3c72" stroke-width="2">
+                        <path d="M18 18.5c1.38 0 2.5-1.12 2.5-2.5s-1.12-2.5-2.5-2.5-2.5 1.12-2.5 2.5 1.12 2.5 2.5 2.5zm0 0V20m-12-1.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zm0 0V20m12-16h-3l-2-2H9L7 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1.29"/>
+                        <path d="M18.71 18H5.29"/>
+                    </svg>
+                </div>
+                <div class="gallery-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1e3c72" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>📍 Endereço</h3>
+                    <p>
+                        Rua Dom Pedro II, nº 530<br>
+                        Bairro Canoas<br>
+                        Rio do Sul - SC<br>
+                        CEP 89.164-102
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📞 Telefone</h3>
+                    <p>
+                        <a href="tel:4735214124">(47) 3521-4124</a>
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>⏰ Horário</h3>
+                    <p>
+                        Segunda a Sexta<br>
+                        08h00 às 18h00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>DESPACHANTE CANOAS LTDA</strong></p>
+                <p>CNPJ: 10.731.631/0001-34</p>
+                <p>Rua Dom Pedro II, nº 530, Bairro Canoas, Rio do Sul - SC, CEP 89.164-102</p>
+                <p>Telefone: (47) 3521-4124</p>
+                <p style="margin-top: 1.5rem; opacity: 0.7;">© 2024 Despachante Canoas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
